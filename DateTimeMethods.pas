@@ -5,15 +5,17 @@ function IsLeapYear(year: integer): boolean;
 ///находит количество дней в месяце
 function DaysInMonth(month, year: integer): integer;
 
-function LaterInDay(p1, p2: DateTime): DateTime := p1;
+function LaterInDay(p1, p2: DateTime): DateTime;
 
-function LaterInYear(p1, p2: DateTime): DateTime := p1;
-
+function LaterInYear(p1, p2: DateTime): DateTime;
+{
 function DaysInYear(year: integer): integer := 0;
 
 function DaysInYearRange(year1, year2: integer): integer := 0;
 
 function SecondsInHours(hours: integer): integer := 0;
+}
+function monthtoday(p:Datetime):integer;
 
 implementation
 
@@ -36,5 +38,24 @@ begin
     end;
   end;
 end;
+
+function monthtoday(p:Datetime):integer;
+begin
+  result:=p.day;
+  for var i:=1 to p.month do 
+  begin
+    result+=DaysInMonth(p.Month, p.Year);
+  end;
+end;
+
+function LaterInYear(p1, p2: DateTime): DateTime;
+begin
+  var d1:=monthToDay(p1);  
+  var d2:=monthToDay(p2);
+  result:=p1;
+  if d2 > d1 then
+    result:=p2;
+end;
+
 begin  
 end.
