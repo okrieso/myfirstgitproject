@@ -41,7 +41,7 @@ begin
 	assert(DaysInYear(1900) = 365, 'TestDaysInYear fails on 1900');
   println('TestDaysInYear success');
 end;
-{
+
 procedure TestDaysInYearRange();
 begin
 	assert(DaysInYearRange(2000, 2000) = 366, 'TestDaysInYear fails on 2000..2000');
@@ -50,7 +50,7 @@ begin
 	assert(DaysInYearRange(2050, 2100) = 18627, 'TestDaysInYear fails on 2050..2100');
   println('TestDaysInYearRange success');
 end;
-
+{
 procedure TestSecondsInHours();
 begin
 	assert(SecondsInHours(1) = 60*60, 'TestSecondsInHours fails on 1');
@@ -64,8 +64,9 @@ begin
 	TestDaysInMonth;
 	TestrLaterInYear;	
 	TestDaysInYear;
-{	
+	
 	TestDaysInYearRange;
+{
 	TestSecondsInHours;
 }
 end.
