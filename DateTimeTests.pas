@@ -1,13 +1,15 @@
-﻿unit DateTimeTests;
-
+﻿
 uses DateTimeMethods;
 
 procedure TestIsLeapYear();
 begin
 	assert(IsLeapYear(2004), 'TestIsLeapYear fails on 2004');
 	assert(IsLeapYear(1812), 'TestIsLeapYear fails on 1812');
+	assert(IsLeapYear(2000), 'TestIsLeapYear fails on 2000');
+	assert(not IsLeapYear(1900), 'TestIsLeapYear fails on 1900');
 	assert(not IsLeapYear(2003), 'TestIsLeapYear fails on 2003');
 	assert(not IsLeapYear(1999), 'TestIsLeapYear fails on 1999');
+	println('TestIsLeapYear success');
 end;
 
 procedure TestDaysInMonth();
@@ -16,6 +18,7 @@ begin
 	assert(DaysInMonth(2, 2004) = 29, 'TestDaysInMonth fails on February 2004');
 	assert(DaysInMonth(4, 2019) = 30, 'TestDaysInMonth fails on February 2004');
 	assert(DaysInMonth(5, 1967) = 31, 'TestDaysInMonth fails on February 2004');
+	println('TestDaysInMonth success');
 end;
 
 procedure TestrLaterInYear();
@@ -27,6 +30,7 @@ begin
 	assert(LaterInYear(p2, p1) = p1, 'TestLaterInYear fails on 21.11 and 11.7');
 	assert(LaterInYear(p2, p3) = p2, 'TestLaterInYear fails on 20.2 and 11.7');
 	assert(LaterInYear(p3, p1) = p1, 'TestLaterInYear fails on 21.11 and 20.2');
+  println('TestrLaterInYear success');
 end;
 
 procedure TestDaysInYear();
@@ -35,14 +39,16 @@ begin
 	assert(DaysInYear(2001) = 365, 'TestDaysInYear fails on 2001');
 	assert(DaysInYear(1600) = 366, 'TestDaysInYear fails on 1600');
 	assert(DaysInYear(1900) = 365, 'TestDaysInYear fails on 1900');
+  println('TestDaysInYear success');
 end;
-
+{
 procedure TestDaysInYearRange();
 begin
 	assert(DaysInYearRange(2000, 2000) = 366, 'TestDaysInYear fails on 2000..2000');
 	assert(DaysInYearRange(2000, 2004) = 1827, 'TestDaysInYear fails on 2000..2004');
 	assert(DaysInYearRange(1999, 2001) = 1096, 'TestDaysInYear fails on 1999..2001');
 	assert(DaysInYearRange(2050, 2100) = 18627, 'TestDaysInYear fails on 2050..2100');
+  println('TestDaysInYearRange success');
 end;
 
 procedure TestSecondsInHours();
@@ -50,8 +56,16 @@ begin
 	assert(SecondsInHours(1) = 60*60, 'TestSecondsInHours fails on 1');
 	assert(SecondsInHours(2) = 2*60*60, 'TestSecondsInHours fails on 2');
 	assert(SecondsInHours(0) = 0, 'TestSecondsInHours fails on 0');
+  println('TestSecondsInHours success');
 end;
-
+}
 begin
-	//Here be test-calls
+	TestIsLeapYear;
+	TestDaysInMonth;
+	TestrLaterInYear;	
+	TestDaysInYear;
+{	
+	TestDaysInYearRange;
+	TestSecondsInHours;
+}
 end.
