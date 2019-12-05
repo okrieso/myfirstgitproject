@@ -10,9 +10,9 @@ function LaterInYear(p1, p2: DateTime): DateTime;
 function DaysInYear(year: integer): integer;
 
 function DaysInYearRange(year1, year2: integer): integer;
-
-function SecondsInHours(hours: integer): integer;
-
+{
+function SecondsInHours(hours: integer): integer := 0;
+}
 function monthtoday(p:Datetime):integer;
 
 implementation
@@ -69,11 +69,6 @@ begin
   result:=0;
   for var i:=year1 to year2 do
     result+=DaysInYear(i);
-end;
-
-function SecondsInHours(hours: integer): integer;
-begin
-  result:=hours*3600;
 end;
 
 begin  
